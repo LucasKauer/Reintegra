@@ -3,6 +3,7 @@ package com.lucaskauer.reintegra.entidade;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
 import java.util.List;
@@ -22,12 +23,14 @@ public class Oportunidade implements Serializable {
 	@NotNull
 	private Date dataDaPublicacao;
 
-	@Column(name = "Descricao")
+	@Column(name = "Descricao", length = 200)
 	@NotNull
+	@Size(min = 4)
 	private String descricao;
 
-	@Column(name = "Titulo")
+	@Column(name = "Titulo", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String titulo;
 
 	@OneToMany(mappedBy = "oportunidade")

@@ -14,7 +14,6 @@ public class DadosContato implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
 	@Column(name = "Email")

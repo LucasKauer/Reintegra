@@ -3,6 +3,7 @@ package com.lucaskauer.reintegra.entidade;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.List;
 
@@ -14,15 +15,16 @@ public class PreRequisito implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
-	@Column(name = "Descricao")
+	@Column(name = "Descricao", length = 200)
 	@NotNull
+	@Size(min = 4)
 	private String descricao;
 
-	@Column(name = "Titulo")
+	@Column(name = "Titulo", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String titulo;
 
 	@ManyToMany

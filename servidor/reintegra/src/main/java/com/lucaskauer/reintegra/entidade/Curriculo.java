@@ -3,6 +3,7 @@ package com.lucaskauer.reintegra.entidade;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @NamedQuery(name = "Curriculo.findAll", query = "SELECT c FROM Curriculo c")
@@ -12,15 +13,16 @@ public class Curriculo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
-	@Column(name = "Idioma")
+	@Column(name = "Idioma", length = 50)
 	@NotNull
+	@Size(min = 4)
 	private String idioma;
 
-	@Column(name = "Nome")
+	@Column(name = "Nome", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String nome;
 
 	@ManyToOne
