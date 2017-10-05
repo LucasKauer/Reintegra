@@ -1,0 +1,32 @@
+INSERT INTO `ReintegraDB`.`Estado`
+(`Id`,
+`Nome`,
+`IdPais`)
+VALUES
+(1, 'Acre', 35)
+,(2, 'Alagoas', 35)	
+,(3, 'Amapá', 35)
+,(4, 'Amazonas', 35)
+,(5, 'Bahia', 35)
+,(6, 'Ceará', 35)
+,(7, 'Distrito Federal', 35)
+,(8, 'Espírito Santo', 35)
+,(9, 'Goiás', 35)
+,(10, 'Maranhão', 35)
+,(11, 'Mato Grosso', 35)
+,(12, 'Mato Grosso do Sul', 35)	
+,(13, 'Minas Gerais', 35)	
+,(14, 'Pará', 35)
+,(15, 'Paraíba', 35)
+,(16, 'Paraná', 35)
+,(17, 'Pernambuco', 35)
+,(18, 'Piauí', 35)
+,(19, 'Rio de Janeiro', 35)
+,(20, 'Rio Grande do Norte', 35)
+,(21, 'Rio Grande do Sul', 35)
+,(22, 'Rondônia', 35)
+,(23, 'Roraima', 35)
+,(24, 'Santa Catarina', 35)
+,(25, 'São Paulo', 35)
+,(26, 'Sergipe', 35)
+,(27, 'Tocantins', 35);
