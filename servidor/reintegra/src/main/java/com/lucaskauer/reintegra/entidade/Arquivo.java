@@ -1,4 +1,4 @@
-package com.lucaskauer.reintegra.dominio;
+package com.lucaskauer.reintegra.entidade;
 
 import java.io.Serializable;
 import javax.persistence.*;

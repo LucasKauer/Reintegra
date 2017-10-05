@@ -1,4 +1,4 @@
-package com.lucaskauer.reintegra.dominio;
+package com.lucaskauer.reintegra.entidade;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "Beneficio.findAll", query = "SELECT b FROM Beneficio b")
-public class Beneficio implements Serializable {
+@NamedQuery(name = "Permissao.findAll", query = "SELECT p FROM Permissao p")
+public class Permissao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,12 +26,12 @@ public class Beneficio implements Serializable {
 	private String descricao;
 
 	@ManyToMany
-	@JoinTable(name = "OportunidadeBeneficio", joinColumns = {
-			@JoinColumn(name = "IdBeneficio") }, inverseJoinColumns = { @JoinColumn(name = "IdOportunidade") })
+	@JoinTable(name = "PerfilPermissao", joinColumns = { @JoinColumn(name = "IdPermissao") }, inverseJoinColumns = {
+			@JoinColumn(name = "IdPerfil") })
 	@NotNull
-	private List<Oportunidade> oportunidades;
+	private List<Perfil> perfils;
 
-	public Beneficio() {
+	public Permissao() {
 	}
 
 	public long getId() {
@@ -58,12 +58,12 @@ public class Beneficio implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public List<Oportunidade> getOportunidades() {
-		return this.oportunidades;
+	public List<Perfil> getPerfils() {
+		return this.perfils;
 	}
 
-	public void setOportunidades(List<Oportunidade> oportunidades) {
-		this.oportunidades = oportunidades;
+	public void setPerfils(List<Perfil> perfils) {
+		this.perfils = perfils;
 	}
 
 }

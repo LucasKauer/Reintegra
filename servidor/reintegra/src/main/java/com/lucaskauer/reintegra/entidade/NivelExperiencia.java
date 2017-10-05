@@ -1,4 +1,4 @@
-package com.lucaskauer.reintegra.dominio;
+package com.lucaskauer.reintegra.entidade;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "TipoEmprego.findAll", query = "SELECT t FROM TipoEmprego t")
-public class TipoEmprego implements Serializable {
+@NamedQuery(name = "NivelExperiencia.findAll", query = "SELECT n FROM NivelExperiencia n")
+public class NivelExperiencia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,16 +26,12 @@ public class TipoEmprego implements Serializable {
 	private String descricao;
 
 	@ManyToMany
-	@JoinTable(name = "OportunidadeTipoEmprego", joinColumns = {
-			@JoinColumn(name = "IdTipoEmprego") }, inverseJoinColumns = { @JoinColumn(name = "IdOportunidade") })
+	@JoinTable(name = "OportunidadeNivelExperiencia", joinColumns = {
+			@JoinColumn(name = "IdNivelExperiencia") }, inverseJoinColumns = { @JoinColumn(name = "IdOportunidade") })
 	@NotNull
 	private List<Oportunidade> oportunidades;
 
-	@OneToMany(mappedBy = "tipoEmprego")
-	@NotNull
-	private List<Recomendacao> recomendacoes;
-
-	public TipoEmprego() {
+	public NivelExperiencia() {
 	}
 
 	public long getId() {
@@ -68,28 +64,6 @@ public class TipoEmprego implements Serializable {
 
 	public void setOportunidades(List<Oportunidade> oportunidades) {
 		this.oportunidades = oportunidades;
-	}
-
-	public List<Recomendacao> getRecomendacaos() {
-		return this.recomendacoes;
-	}
-
-	public void setRecomendacoes(List<Recomendacao> recomendacoes) {
-		this.recomendacoes = recomendacoes;
-	}
-
-	public Recomendacao addRecomendacao(Recomendacao recomendacao) {
-		getRecomendacaos().add(recomendacao);
-		recomendacao.setTipoEmprego(this);
-
-		return recomendacao;
-	}
-
-	public Recomendacao removeRecomendacao(Recomendacao recomendacao) {
-		getRecomendacaos().remove(recomendacao);
-		recomendacao.setTipoEmprego(null);
-
-		return recomendacao;
 	}
 
 }
