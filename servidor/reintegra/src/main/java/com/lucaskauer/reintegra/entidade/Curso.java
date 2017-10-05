@@ -15,7 +15,6 @@ public class Curso implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
 	@Column(name = "CargaHoraria")

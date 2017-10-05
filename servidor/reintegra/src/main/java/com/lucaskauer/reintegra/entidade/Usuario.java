@@ -3,6 +3,7 @@ package com.lucaskauer.reintegra.entidade;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Usuario")
@@ -14,19 +15,21 @@ public abstract class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
-	@Column(name = "Apelido")
+	@Column(name = "Apelido", length = 25)
 	@NotNull
+	@Size(min = 4)
 	private String apelido;
 
-	@Column(name = "Email")
+	@Column(name = "Email", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String email;
 
-	@Column(name = "Senha")
+	@Column(name = "Senha", length = 200)
 	@NotNull
+	@Size(min = 4)
 	private String senha;
 
 	@ManyToOne(cascade=CascadeType.ALL)

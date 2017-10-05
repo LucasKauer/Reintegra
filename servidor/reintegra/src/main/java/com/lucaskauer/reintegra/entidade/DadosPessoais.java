@@ -3,6 +3,7 @@ package com.lucaskauer.reintegra.entidade;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
 import java.util.List;
@@ -16,11 +17,11 @@ public class DadosPessoais implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
-	@Column(name = "Cpf")
+	@Column(name = "Cpf", length = 11)
 	@NotNull
+	@Size(min = 11, max = 11)
 	private String cpf;
 
 	@Temporal(TemporalType.DATE)
@@ -28,16 +29,19 @@ public class DadosPessoais implements Serializable {
 	@NotNull
 	private Date dataDeNascimento;
 
-	@Column(name = "Nome")
+	@Column(name = "Nome", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String nome;
 
-	@Column(name = "Rg")
+	@Column(name = "Rg", length = 15)
 	@NotNull
+	@Size(min = 10, max = 15)
 	private String rg;
 
-	@Column(name = "Sexo")
+	@Column(name = "Sexo", length = 1)
 	@NotNull
+	@Size(min = 1)
 	private String sexo;
 
 	@ManyToOne(cascade=CascadeType.ALL)

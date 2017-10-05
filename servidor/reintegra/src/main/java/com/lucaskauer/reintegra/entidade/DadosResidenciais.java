@@ -3,8 +3,7 @@ package com.lucaskauer.reintegra.entidade;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
-import com.lucaskauer.reintegra.aplicacao.egresso.model.DadosResidenciaisModel;
+import javax.validation.constraints.Size;
 
 import java.util.List;
 
@@ -17,23 +16,24 @@ public class DadosResidenciais implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
-	@Column(name = "Bairro")
+	@Column(name = "Bairro", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String bairro;
 
-	@Column(name = "Cep")
+	@Column(name = "Cep", length = 8)
 	@NotNull
+	@Size(min = 8, max = 8)
 	private String cep;
 
-	@Column(name = "Complemento")
-	@NotNull
+	@Column(name = "Complemento", length = 200)
 	private String complemento;
 
-	@Column(name = "Endereco")
+	@Column(name = "Endereco", length = 100)
 	@NotNull
+	@Size(min = 4)
 	private String endereco;
 
 	@Column(name = "Numero")

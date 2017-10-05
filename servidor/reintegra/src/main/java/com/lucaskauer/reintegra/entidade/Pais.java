@@ -15,10 +15,9 @@ public class Pais implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id")
-	@NotNull
 	private long id;
 
-	@Column(name = "Nome")
+	@Column(name = "Nome", length = 100)
 	@NotNull
 	private String nome;
 
