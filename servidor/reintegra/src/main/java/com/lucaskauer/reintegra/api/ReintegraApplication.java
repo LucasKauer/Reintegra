@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan("com.lucaskauer.reintegra")
-@EntityScan("com.lucaskauer.reintegra.dominio")
+@EntityScan("com.lucaskauer.reintegra.entidade")
 @EnableJpaRepositories("com.lucaskauer.reintegra.infraestrutura.repositorio")
 public class ReintegraApplication {
 
