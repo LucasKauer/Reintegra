@@ -6,6 +6,7 @@ public class EgressoModel {
 	private String apelido;
 	private String email;
 	private String senha;
+	private boolean ativo;
 	private PerfilModel perfil;
 	private DadosPessoaisModel dadosPessoais;
 	private DadosResidenciaisModel dadosResidenciais;
@@ -15,6 +16,7 @@ public class EgressoModel {
 		this.setApelido(egresso.getApelido());
 		this.setEmail(egresso.getEmail());
 		this.setSenha(egresso.getSenha());
+		this.setAtivo(egresso.isAtivo());
 		
 		PerfilModel perfil = new PerfilModel(egresso.getPerfil());
 		DadosPessoaisModel dadosPessoais = new DadosPessoaisModel(egresso.getDadosPessoais());
@@ -49,6 +51,14 @@ public class EgressoModel {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public PerfilModel getPerfil() {

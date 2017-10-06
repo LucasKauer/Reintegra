@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.lucaskauer.reintegra.aplicacao.egresso.model.EgressoModel;
 import com.lucaskauer.reintegra.aplicacao.egresso.request.AtualizarEgressoRequest;
-import com.lucaskauer.reintegra.aplicacao.egresso.request.DeletarEgressoRequest;
 import com.lucaskauer.reintegra.aplicacao.egresso.request.InserirEgressoRequest;
 import com.lucaskauer.reintegra.aplicacao.egresso.request.PesquisarEgressoRequest;
 import com.lucaskauer.reintegra.entidade.Cidade;
@@ -97,8 +96,8 @@ public class ServicoDeEgressoImpl implements ServicoDeEgresso {
 	}
 
 	@Override
-	public void deletar(DeletarEgressoRequest request) throws Exception {
-		// TODO: implementar removacao de egresso do BD
+	public void inativar(long id) throws Exception {
+		this.repositorioDeEgresso.inativar(id);
 	}
 
 }

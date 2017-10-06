@@ -31,6 +31,10 @@ public abstract class Usuario implements Serializable {
 	@NotNull
 	@Size(min = 4)
 	private String senha;
+	
+	@Column(name = "Ativo")
+	@NotNull
+	private boolean ativo;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "IdDadosPessoais")
@@ -56,12 +60,13 @@ public abstract class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(String apelido, String email, String senha, DadosPessoais dadosPessoais, Perfil perfil,
+	public Usuario(String apelido, String email, String senha, boolean ativo, DadosPessoais dadosPessoais, Perfil perfil,
 			DadosResidenciais dadosResidenciais, DadosContato dadosContato) {
 		super();
 		this.apelido = apelido;
 		this.email = email;
 		this.senha = senha;
+		this.ativo = ativo;
 		this.dadosPessoais = dadosPessoais;
 		this.perfil = perfil;
 		this.dadosResidenciais = dadosResidenciais;
@@ -102,6 +107,14 @@ public abstract class Usuario implements Serializable {
 		this.senha = senha;
 	}
 	
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public DadosPessoais getDadosPessoais() {
 		return this.dadosPessoais;
 	}
