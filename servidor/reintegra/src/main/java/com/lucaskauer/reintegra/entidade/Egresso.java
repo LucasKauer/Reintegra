@@ -23,7 +23,7 @@ public class Egresso extends Usuario {
 
 	public Egresso(String apelido, String email, String senha, DadosPessoais dadosPessoais, Perfil perfil,
 			DadosResidenciais dadosResidenciais, DadosContato dadosContato) {
-		super(apelido, email, senha, dadosPessoais, perfil, dadosResidenciais, dadosContato);
+		super(apelido, email, senha, true, dadosPessoais, perfil, dadosResidenciais, dadosContato);
 	}
 
 	public List<Curriculo> getCurriculos() {

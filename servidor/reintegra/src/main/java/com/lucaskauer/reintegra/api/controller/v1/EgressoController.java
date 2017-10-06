@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lucaskauer.reintegra.aplicacao.egresso.ServicoDeEgresso;
 import com.lucaskauer.reintegra.aplicacao.egresso.model.EgressoModel;
 import com.lucaskauer.reintegra.aplicacao.egresso.request.AtualizarEgressoRequest;
-import com.lucaskauer.reintegra.aplicacao.egresso.request.DeletarEgressoRequest;
 import com.lucaskauer.reintegra.aplicacao.egresso.request.InserirEgressoRequest;
 import com.lucaskauer.reintegra.aplicacao.egresso.request.PesquisarEgressoRequest;
 
@@ -53,13 +52,13 @@ public class EgressoController {
 	@PutMapping
 	public ResponseEntity<?> atualizar(@RequestBody AtualizarEgressoRequest request) throws Exception {
 		this.servicoDeEgresso.atualizar(request);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.accepted().build();
 	}
 
-	@DeleteMapping
-	public ResponseEntity<?> deletar(@RequestBody DeletarEgressoRequest request) throws Exception {
-		this.servicoDeEgresso.deletar(request);
-		return ResponseEntity.noContent().build();
+	@DeleteMapping("{id}")
+	public ResponseEntity<?> inativar(@PathVariable long id) throws Exception {
+		this.servicoDeEgresso.inativar(id);
+		return ResponseEntity.accepted().build();
 	}
 
 }
